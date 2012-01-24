@@ -3,8 +3,5 @@ AUDIO5
 Description :
 Audio5 est un lecteur audio utilisant HTML5 proposant une alternative Flash, il est ainsi utilisable sur tout les navigateurs.
 
-Installation :
-
-1- Déplacez le dossier audio5 dans votre projet.
-2- Placez vos fichiers audio dans le dossier audio5/media
-3- Dans le fichier devant présenter le lecteur :
+Instruction d'installation dans le Wiki AUDIO5 : 
+https://github.com/FreePostPas/AUDIO5/wiki
