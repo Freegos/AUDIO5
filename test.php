@@ -12,7 +12,7 @@
 		$url_audio_ogg = "test.ogg";
 
 		$player = new PlayerAudio5;
-		$player->player($url_audio_mp3, NULL, FALSE, TRUE);
+		$player->player_audio($url_audio_mp3, $url_audio_ogg, FALSE, TRUE);
 		
 	
 	 ?>
