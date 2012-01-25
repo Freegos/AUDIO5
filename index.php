@@ -16,13 +16,72 @@
 
 			public function player_audio($url_audio_mp3, $url_audio_ogg = NULL, $autoplay = FALSE, $preload = FALSE) {
 
-			if($this->is_ie9() OR $this->is_chrome12() OR $this->$this->$this->$this->$this->is_chrome13() OR $this->$this->$this->$this->is_chrome14() OR $this->$this->$this->is_chrome15() OR $this->$this->is_chrome16() OR $this->is_safari5()) {
-				
-				echo '<audio src="'.$url_audio_mp3.'" controls preload></audio>';;
-
-
+			if($this->accept_ogg() AND $preload = TRUE AND $autoplay = TRUE) {
+				echo '<audio src="'.$url_audio_ogg.'" controls preload autoplay></audio>';;
+			}		
+			elseif($this->accept_ogg() AND $preload = TRUE AND $autoplay = FALSE) {
+				echo '<audio src="'.$url_audio_ogg.'" controls preload></audio>'
+			}
+			elseif($this->accept_ogg() AND $preload = FALSE AND $autoplay = TRUE) {
+				echo '<audio src="'.$url_audio_ogg.'" controls autoplay></audio>';;
+			}
+			elseif($this->accept_ogg() AND $preload = FALSE AND $autoplay = FALSE) {
+				echo '<audio src="'.$url_audio_ogg.'" controls></audio>'
 			}
 			
+			if($this->accept_mp3() AND $preload = TRUE AND $autoplay = TRUE) {
+				echo '<audio src="'.$url_audio_mp3.'" controls preload autoplay></audio>';;
+			}		
+			elseif($this->accept_mp3() AND $preload = TRUE AND $autoplay = FALSE) {
+				echo '<audio src="'.$url_audio_mp3.'" controls preload></audio>'
+			}
+			elseif($this->accept_mp3() AND $preload = FALSE AND $autoplay = TRUE) {
+				echo '<audio src="'.$url_audio_mp3.'" controls autoplay></audio>';;
+			}
+			elseif($this->accept_mp3() AND $preload = FALSE AND $autoplay = FALSE) {
+				echo '<audio src="'.$url_audio_mp3.'" controls></audio>'
+			}
+
+			elseif($autoplay = TRUE AND $preload = TRUE) {
+				echo '<audio controls preload autoplay>
+					<source src="'.$url_audio_mp3.'">
+					<source src="'.$url_audio_ogg.'">
+					<object data="test.mp3">
+						<param name="src" value="test.mp3">
+						<param name="autoplay" value="true">
+					</object>
+				</audio>';
+			}
+			elseif($autoplay = TRUE AND $preload = FALSE) {
+				echo '<audio controls autoplay>
+					<source src="'.$url_audio_mp3.'">
+					<source src="'.$url_audio_ogg.'">
+					<object data="test.mp3">
+						<param name="src" value="test.mp3">
+						<param name="autoplay" value="true">
+					</object>
+				</audio>';
+			}
+			elseif($autoplay = FALSE AND $preload = TRUE) {
+				echo '<audio controls preload>
+					<source src="'.$url_audio_mp3.'">
+					<source src="'.$url_audio_ogg.'">
+					<object data="test.mp3">
+						<param name="src" value="test.mp3">
+						<param name="autoplay" value="false">
+					</object>
+				</audio>';
+			}
+			elseif($autoplay = FALSE AND $preload = FALSE) {
+				echo '<audio controls>
+					<source src="'.$url_audio_mp3.'">
+					<source src="'.$url_audio_ogg.'">
+					<object data="test.mp3">
+						<param name="src" value="test.mp3">
+						<param name="autoplay" value="false">
+					</object>
+				</audio>';
+			}
 			
 
 
